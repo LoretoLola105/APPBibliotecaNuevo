@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="newClassDiagramTemplate">
+  <ClassDiagramComponents>
+    <Class name="Libro" package="" visibility="public" xPosition="27.0" yPosition="166.0">
+      <Fields>
+        <Field name="Isbn" type="int" visibility="private"/>
+        <Field name="titulo" type="String" visibility="private"/>
+        <Field name="autor" type="Autor" visibility="private"/>
+        <Field name="anio" type="Int" visibility="private"/>
+        <Field name="tipo" type="String" visibility="private"/>
+        <Field name="editorial" type="String" visibility="private"/>
+        <Field name="estado" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="Libro" returnType="boolena" visibility="public">
+          <Argument type="String" name="titulo"/>
+          <Argument type="Autor" name="autor"/>
+          <Argument type="int" name="anio"/>
+          <Argument type="String" name="titulo"/>
+          <Argument type="Strin" name="editorial"/>
+          <Argument type="boolena" name="estado"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Ejemplar" package="" visibility="public" xPosition="1044.0" yPosition="235.0">
+      <Fields>
+        <Field name="idEjemplar" type="int" visibility="private"/>
+        <Field name="libro" type="Libro" visibility="private"/>
+        <Field name="estado" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Lector" package="" visibility="public" xPosition="27.0" yPosition="498.0">
+      <Fields>
+        <Field name="idSocio" type="int" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="domicilio" type="String" visibility="private"/>
+        <Field name="email" type="String" visibility="private"/>
+        <Field name="estado" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="Lector" returnType="boolean" visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="domicilio"/>
+          <Argument type="String" name="email"/>
+          <Argument type="boolean" name="estado"/>
+        </Method>
+        <Method name="activarLector" returnType="Lector" visibility="public">
+          <Argument type="Lector" name="l"/>
+        </Method>
+        <Method name="desactivarLector" returnType="Lector" visibility="public">
+          <Argument type="Lector" name="l"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Prestamo" package="" visibility="public" xPosition="646.0" yPosition="461.0">
+      <Fields>
+        <Field name="idPrestamo" type="int" visibility="private"/>
+        <Field name="fechaInicio" type="Date" visibility="private"/>
+        <Field name="fechaFin" type="Date" visibility="private"/>
+        <Field name="ejemplar" type="Ejemplar" visibility="private"/>
+        <Field name="lector" type="Lector" visibility="private"/>
+        <Field name="estado" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="Prestamo" returnType="boolean" visibility="public">
+          <Argument type="Date" name="fechaInicio"/>
+          <Argument type="Date" name="fechaFin"/>
+          <Argument type="Ejemplar" name="ejemplar"/>
+          <Argument type="Lector" name="lector"/>
+          <Argument type="boolean" name="estado"/>
+        </Method>
+        <Method name="solicitarLibro" returnType="Lector" visibility="public">
+          <Argument type="Ejemplar" name="e"/>
+          <Argument type="Lector" name="l"/>
+        </Method>
+        <Method name="devolverLibro" returnType="lector" visibility="public">
+          <Argument type="Ejemplar" name="e"/>
+          <Argument type="lector" name="l"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Autor" package="" visibility="public" xPosition="793.0" yPosition="0.0">
+      <Fields>
+        <Field name="apellido" type="String" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="titulo" type="String" visibility="private"/>
+        <Field name="tipo" type="String" visibility="private"/>
+        <Field name="Editorial" type="String" visibility="private"/>
+        <Field name="anioEdicion" type="int" visibility="private"/>
+        <Field name="estado" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="untitledMethod" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="tiene" source="Libro" target="Ejemplar" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="tiene" source="Prestamo" target="Ejemplar" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="tiene" source="Prestamo" target="Lector" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="tiene" source="Libro" target="Autor" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

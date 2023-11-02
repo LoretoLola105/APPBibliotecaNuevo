@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="AccesoDatosUML">
+  <ClassDiagramComponents>
+    <Class name="Conexion" package="" visibility="public" xPosition="692.0" yPosition="49.0">
+      <Fields>
+        <Field name="URL" type="String" visibility="private"/>
+        <Field name="DB" type="String" visibility="private"/>
+        <Field name="USUARIO" type="String" visibility="private"/>
+        <Field name="PASSWORD" type="String" visibility="private"/>
+        <Field name="connection" type="Connection" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getConexion" returnType="Connection" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="LibroData" package="" visibility="public" xPosition="29.0" yPosition="395.0">
+      <Fields>
+        <Field name="con" type="Connection" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="LibroData" returnType="void" visibility="public">
+          <Argument type="int" name="idIsbn"/>
+          <Argument type="String" name="titulo"/>
+          <Argument type="String" name="Autor"/>
+          <Argument type="int" name="anio"/>
+          <Argument type="String" name="tipo"/>
+          <Argument type="String" name="Editorial"/>
+          <Argument type="boolean" name="estado"/>
+        </Method>
+        <Method name="LibroData" returnType="void" visibility="public">
+          <Argument type="String" name="titulo"/>
+          <Argument type="String" name="autor"/>
+          <Argument type="int" name="anio"/>
+          <Argument type="Strign" name="tipo"/>
+          <Argument type="String" name="editorial"/>
+          <Argument type="boolean" name="estado"/>
+        </Method>
+        <Method name="guardarLibro" returnType="void" visibility="public">
+          <Argument type="Libro" name="libro"/>
+        </Method>
+        <Method name="buscarLibro" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="buscarLibroPorTitulo" returnType="void" visibility="public">
+          <Argument type="String" name="titulo"/>
+        </Method>
+        <Method name="modificarLibro" returnType="void" visibility="public">
+          <Argument type="Libro" name="libro"/>
+        </Method>
+        <Method name="listarLibros" returnType="List&lt;Libro&gt;" visibility="public"/>
+        <Method name="eliminarLibro" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation name="tiene" source="LibroData" target="Conexion" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
